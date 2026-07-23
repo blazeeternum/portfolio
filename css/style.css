@@ -1,0 +1,754 @@
+/* ============================================================
+   STYLE.CSS — Main Stylesheet
+   Portfolio: LAU ZEN HAO
+    ID: 2650173-BCS
+   BIBWB1114 Web Design — Individual Assignment 1
+   ============================================================ */
+
+
+/* ---- 1. GOOGLE FONTS are imported in HTML <link> ---- */
+
+
+/* ---- 2. RESET — removes default browser spacing ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ---- 3. COLOR PALETTE (CSS Variables) ---- */
+:root {
+    --primary:        #6C63FF;     /* Main accent — purple */
+    --primary-light:  #EDE9FE;     /* Soft background tint */
+    --accent:         #10B981;     /* Secondary — green */
+
+    --dark:           #1E293B;     /* Headings & dark backgrounds */
+    --text:           #334155;     /* Body text */
+    --text-light:     #64748B;     /* Subtle/muted text */
+    --bg:             #F8FAFC;     /* Page background */
+    --white:          #FFFFFF;     /* Cards & panels */
+    --border:         #E2E8F0;     /* Dividers and borders */
+
+    --radius:         12px;        /* Card corner roundness */
+    --radius-sm:      8px;
+    --shadow:         0 4px 6px -1px rgba(0,0,0,0.08);
+    --shadow-hover:   0 10px 25px -5px rgba(108, 99, 255, 0.18);
+
+    --font-display:   'Space Grotesk', sans-serif;  /* Headings */
+    --font-body:      'Inter', sans-serif;           /* Body text */
+}
+
+
+/* ---- 4. BASE STYLES ---- */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-display);
+    color: var(--dark);
+    line-height: 1.3;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/* ---- 5. REUSABLE UTILITY CLASSES ---- */
+
+/* Purple highlight for key words */
+.highlight {
+    color: var(--primary);
+}
+
+/* Code-style label above section titles */
+.section-tag {
+    font-family: 'Courier New', monospace;
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Centered title block for each section */
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--dark);
+}
+
+
+/* ============================================================
+   6. BUTTON
+   ============================================================ */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--primary);
+    color: var(--white) !important;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #5A52D5;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* ============================================================
+   7. NAVIGATION (shared on both pages)
+   ============================================================ */
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo on the left */
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.logo-bracket {
+    color: var(--primary);
+}
+
+/* Nav links on the right */
+.nav-links {
+    display: flex;
+    gap: 6px;
+}
+
+.nav-links a {
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+
+/* ============================================================
+   8. FOOTER (shared on both pages)
+   ============================================================ */
+footer {
+    background-color: var(--dark);
+    color: #94A3B8;
+    text-align: center;
+    padding: 28px 24px;
+    font-size: 0.9rem;
+}
+
+footer .highlight {
+    color: var(--primary);
+}
+
+
+/* ============================================================
+   PAGE 1 STYLES — index.html
+   ============================================================ */
+
+/* ---- 9. HERO SECTION ---- */
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+/* Code-style greeting badge */
+.hero-tag {
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 600;
+    background-color: var(--primary-light);
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+}
+
+.hero-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.hero-bio {
+    font-size: 1rem;
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+/* Profile image section */
+.hero-image {
+    flex: 0 0 auto;
+}
+
+.profile-img-wrapper {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--white);
+    box-shadow: 0 0 0 8px var(--primary-light), var(--shadow);
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Shown when no photo is provided */
+.profile-placeholder {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-light), #DDD6FE);
+    border: 5px solid var(--white);
+    box-shadow: 0 0 0 8px var(--primary-light);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--primary);
+    text-align: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.profile-placeholder .placeholder-emoji {
+    font-size: 3rem;
+}
+
+
+/* ---- 10. ABOUT ME SECTION ---- */
+.about {
+    background-color: var(--white);
+    padding: 80px 24px;
+}
+
+.about-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.about-card {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
+}
+
+.about-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 14px;
+}
+
+.about-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.about-card p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+
+/* ---- 11. CONTACT SECTION (Page 1) ---- */
+.contact-section {
+    padding: 80px 24px;
+}
+
+.contact-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-links {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: all 0.25s ease;
+}
+
+.contact-card:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    font-size: 1.4rem;
+}
+
+
+/* ============================================================
+   PAGE 2 STYLES — projects.html
+   ============================================================ */
+
+/* ---- 12. PAGE BANNER (top of Page 2) ---- */
+.page-banner {
+    background: linear-gradient(135deg, var(--dark) 0%, #2D3748 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 60px 24px;
+}
+
+.page-banner h1 {
+    color: var(--white);
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+.page-banner p {
+    color: #94A3B8;
+    font-size: 1.05rem;
+}
+
+
+/* ---- 13. TECHNICAL SKILLS SECTION ---- */
+.skills-section {
+    padding: 80px 24px;
+    background-color: var(--white);
+}
+
+.skills-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.skill-category {
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+}
+
+.skill-category h3 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-light);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Solid skill (already learned) */
+.skill-tag {
+    display: inline-block;
+    background-color: var(--primary-light);
+    color: var(--primary);
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Currently learning skill — green */
+.skill-tag.learning {
+    background-color: #D1FAE5;
+    color: #059669;
+}
+
+/* Beginner skill — yellow */
+.skill-tag.beginner {
+    background-color: #FEF3C7;
+    color: #D97706;
+}
+
+
+/* ---- 14. PROJECTS SECTION ---- */
+.projects-section {
+    padding: 80px 24px;
+    background-color: var(--bg);
+}
+
+.projects-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+}
+
+.project-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+/* Real project image */
+.project-img {
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Placeholder when no screenshot yet */
+.project-placeholder-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary-light), #DDD6FE);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: var(--primary);
+    gap: 8px;
+}
+
+.project-placeholder-img span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+}
+
+.project-body {
+    padding: 24px;
+}
+
+.project-body h3 {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+    color: var(--dark);
+}
+
+.project-body p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+/* Row of technology badges */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Dark code-style badge */
+.tech-badge {
+    background-color: var(--dark);
+    color: var(--white);
+    font-size: 0.78rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+}
+
+
+/* ---- 15. EDUCATION TIMELINE ---- */
+.education-section {
+    padding: 80px 24px;
+    background-color: var(--white);
+}
+
+.education-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* The vertical line */
+.timeline {
+    position: relative;
+    padding-left: 32px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--border);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 36px;
+}
+
+/* The dot on the line */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -28px;
+    top: 6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    border: 3px solid var(--primary-light);
+}
+
+.timeline-year {
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+}
+
+.timeline-item h3 {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.timeline-item p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   16. RESPONSIVE DESIGN — Media Queries
+   ============================================================ */
+
+/* ---------- Tablet (≤ 900px) ---------- */
+@media (max-width: 900px) {
+
+    /* Stack hero vertically, image on top */
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 60px 24px;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-bio {
+        max-width: 100%;
+    }
+
+    /* Single column layout for about cards */
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    /* Single column skills */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Single column projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Mobile (≤ 600px) ---------- */
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 16px;
+    }
+
+    .nav-logo {
+        font-size: 1rem;
+    }
+
+    .nav-links a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+
+    .hero-text h1 {
+        font-size: 1.9rem;
+    }
+
+    /* Shrink the profile photo */
+    .profile-img-wrapper,
+    .profile-placeholder {
+        width: 180px;
+        height: 180px;
+    }
+
+    .section-header h2 {
+        font-size: 1.6rem;
+    }
+
+    /* Stack contact cards */
+    .contact-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-card {
+        justify-content: center;
+    }
+
+    .page-banner h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================================================
+   17. CUSTOM BUTTON (Example of a new style you can add)
+   ============================================================ */
+button {
+  /* Colors and Text */
+  background-color: #ff0000; /* YouTube red (change to any color you like) */
+  color: #ffffff;            /* White text color */
+  font-size: 16px;           /* Size of the text */
+  font-weight: bold;         /* Makes the text pop */
+  font-family: sans-serif;   /* Clean modern font */
+
+  /* Sizing and Spacing */
+  padding: 12px 24px;        /* Spacing inside the button (top/bottom, left/right) */
+  border: none;              /* Removes the default ugly grey border */
+  border-radius: 8px;        /* Smooth, rounded corners */
+  
+  /* Interactivity */
+  cursor: pointer;           /* Changes the mouse cursor to a hand icon */
+  transition: all 0.2s ease; /* Smooth animation when transitioning states */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle drop shadow */
+}
+
+/* Hover State: When the mouse hovers over the button */
+button:hover {
+  background-color: #cc0000; /* A slightly darker red */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+  transform: translateY(-2px); /* Moves the button up slightly */
+}
+
+/* Active State: When the button is actually being clicked */
+button:active {
+  transform: translateY(0); /* Pushes the button back down */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Weakens the shadow */
+}
